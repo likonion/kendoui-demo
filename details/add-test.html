@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="m-dialog">
+        <div class="dialog-btn">
+            <button class="btn-save" type="button">保存</button>
+            <button class="k-warning btn-cancel" type="button">取消</button>
+        </div>
+        <div class="tiItemBox" style="min-width:1024px">
+            <div class="tiTitle">基础信息</div>
+            <div class="tiMain">
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="conItem">
+                                    <span class="conName">维修方案项号</span>
+                                    <input class="k-textbox" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="conItem">
+                                    <span class="conName">机型</span>
+                                    <input class="k-textbox" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="conItem">
+                                    <span class="conName">ATA</span>
+                                    <input class="k-textbox" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="conItem">
+                                    <span class="conName"> 营运人</span>
+                                    <input class="k-textbox" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <div class="conItem">
+                                    <span class="conName"> 相关工卡</span>
+                                    <input class="k-textbox" />
+                                </div>
+                            </td>
+                            <td colspan="2">
+                                <div class="conItem">
+                                    <span class="conName"> 相关循环EO</span>
+                                    <input class="k-textbox" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="80" valign="top">
+                                            <div class="conItem">
+                                                <span class="conName">依据文件</span>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div id="add-test-grid" style="height: 100%; width: 100%;"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="conItem">
+                                    <span class="conName">门槛值</span>
+                                    <input class="k-textbox" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="conItem">
+                                    <span class="conName">循环值</span>
+                                    <input class="k-textbox" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="conItem">
+                                    <span class="conName">EO循环间隔</span>
+                                    <input class="k-textbox" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="conItem">
+                                    <span class="conName"> EO循环间隔</span>
+                                    <input class="k-textbox" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="conItem">
+                                    <span class="conName"> 类别</span>
+                                    <input class="k-textbox" />
+                                </div>
+                            </td>
+                            <td>
+                                <div class="conItem">
+                                    <span class="conName"> 工作类型</span>
+                                    <input class="k-textbox" />
+                                </div>
+                            </td>
+                            <td colspan="2">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="80" align="right">中文标题</td>
+                                        <td style="padding:10px;">
+                                            <input class="k-textbox" style="width: 100%;" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="80" align="right">英文标题</td>
+                                        <td style="padding:10px;">
+                                            <input class="k-textbox" style="width: 100%;" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <div class="conItem">
+                                    <span class="conName"> 状态</span>
+                                    <input type="radio" /> 有效
+                                    <input type="radio" /> 暂停分析
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tiTitle">适用性</div>
+            <div class="tiMain">
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td colspan="4">
+                                <div class="conItem">
+                                    <span class="conName"> 适用范围</span>
+                                    <input type="radio" /> 飞机
+                                    <input type="radio" /> 发动机
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="80"></td>
+                                        <td style="padding:10px;">
+                                            <textarea class="k-textbox" style="width:100%"></textarea>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tiTitle">工程数据</div>
+            <div class="tiMain">
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td colspan="4">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="84" valign="top">
+                                            <div class="conItem">
+                                                <span class="conName">相关部件</span>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div id="add-test-grid2" style="height: 100%; width: 100%;"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="84" align="right" valign="top">任务目的</td>
+                                        <td style="padding:0 10px;">
+                                            <textarea class="k-textbox" style="width:100%"></textarea>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="84" align="right" valign="top">任务内容</td>
+                                        <td style="padding:0 10px;">
+                                            <textarea class="k-textbox" style="width:100%"></textarea>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="84" align="right" valign="top">轻微故障定义</td>
+                                        <td style="padding:0 10px;">
+                                            <textarea class="k-textbox" style="width:100%"></textarea>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="84" align="right" valign="top">任务目的</td>
+                                        <td style="padding:0 10px;">
+                                            <textarea class="k-textbox" style="width:100%"></textarea>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="84" align="right" valign="top">重大故障定义</td>
+                                        <td style="padding:0 10px;">
+                                            <textarea class="k-textbox" style="width:100%"></textarea>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="84" align="right" valign="top"> 文本搜索关键词</td>
+                                        <td style="padding:0 10px;">
+                                            <textarea class="k-textbox" style="width:100%"></textarea>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="84" align="right" valign="top">失效原因</td>
+                                        <td style="padding:0 10px;">
+                                            <textarea class="k-textbox" style="width:100%"></textarea>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="84" align="right">失效影响</td>
+                                        <td style="padding:0 10px;">
+                                            <input class="k-textbox" style="width:100%">
+                                            </>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td>
+                                <div class="conItem">
+                                    <span class="conName"> 失效影响类别</span>
+                                    <input class="k-textbox" />
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tiTitle">维修方案项目修订记录</div>
+            <div class="tiMain">
+                <div id="grid2" style="height: 100%; width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $("#grid2").kendoGrid({
+            dataSource: {
+                data: products,
+                pageSize: 20
+            },
+            scrollable: true,
+            sortable: true,
+            selectable: true,
+            pageable: {
+                input: true,
+                numeric: false
+            },
+            columns: [{
+                    command: [{
+                        text: "编辑",
+                        iconClass: "k-icon k-i-edit",
+                        click: function (e) {
+                            alert('编辑')
+                        }
+                    }],
+                    title: "操作"
+                },
+                {
+                    field: "models",
+                    title: "机型"
+                },
+                {
+                    field: "planNum",
+                    title: "维修方案项号"
+                },
+                {
+                    field: "SIN_Number",
+                    title: "工卡号"
+                },
+                {
+                    field: "eo",
+                    title: "循环EO"
+                },
+                {
+                    field: "ATA",
+                    title: "ATA"
+                },
+                {
+                    field: "hresholdValue",
+                    title: "门槛值"
+                },
+                {
+                    field: "cycleValue",
+                    title: "循环值"
+                },
+                {
+                    field: "zhTitle",
+                    title: "中文标题"
+                },
+                {
+                    field: "enTitle",
+                    title: "英文标题"
+                },
+                {
+                    field: "operator",
+                    title: "营运人"
+                }
+
+            ],
+            editable: "popup"
+        });
+        $("#add-test-grid").kendoGrid({
+            dataSource: {
+                data: products,
+                schema: {
+                    model: {
+                        fields: {
+                            models: {
+                                type: "string"
+                            },
+                            planNum: {
+                                type: "string"
+                            },
+                            SIN_Number: {
+                                type: "string"
+                            },
+                            eo: {
+                                type: "string"
+                            },
+                            ATA: {
+                                type: "string"
+                            },
+                            hresholdValue: {
+                                type: "string"
+                            },
+                            cycleValue: {
+                                type: "string"
+                            },
+                            zhTitle: {
+                                type: "string"
+                            },
+                            enTitle: {
+                                type: "string"
+                            },
+                            operator: {
+                                type: "string"
+                            }
+                        }
+                    }
+                },
+                pageSize: 20
+            },
+            scrollable: true,
+            sortable: true,
+            selectable: true,
+            pageable: {
+                input: true,
+                numeric: false
+            },
+            columns: [{
+                    field: "models",
+                    title: "文件类型"
+                },
+                {
+                    field: "planNum",
+                    title: "文件号"
+                },
+                {
+                    field: "SIN_Number",
+                    title: "时限描述"
+                },
+                {
+                    field: "eo",
+                    title: "实用性描述"
+                }
+            ],
+            editable: "popup"
+        });
+        $("#add-test-grid").kendoGrid({
+            dataSource: {
+                data: products,
+                schema: {
+                    model: {
+                        fields: {
+                            models: {
+                                type: "string"
+                            },
+                            planNum: {
+                                type: "string"
+                            },
+                            SIN_Number: {
+                                type: "string"
+                            },
+                            eo: {
+                                type: "string"
+                            },
+                            ATA: {
+                                type: "string"
+                            },
+                            hresholdValue: {
+                                type: "string"
+                            },
+                            cycleValue: {
+                                type: "string"
+                            },
+                            zhTitle: {
+                                type: "string"
+                            },
+                            enTitle: {
+                                type: "string"
+                            },
+                            operator: {
+                                type: "string"
+                            }
+                        }
+                    }
+                },
+                pageSize: 20
+            },
+            scrollable: true,
+            sortable: true,
+            selectable: true,
+            pageable: {
+                input: true,
+                numeric: false
+            },
+            columns: [{
+                    field: "models",
+                    title: "文件类型"
+                },
+                {
+                    field: "planNum",
+                    title: "文件号"
+                },
+                {
+                    field: "SIN_Number",
+                    title: "时限描述"
+                },
+                {
+                    field: "eo",
+                    title: "实用性描述"
+                }
+            ],
+            editable: "popup"
+        });
+        $("#add-test-grid2").kendoGrid({
+            dataSource: {
+                data: products,
+                pageSize: 20
+            },
+            scrollable: true,
+            sortable: true,
+            selectable: true,
+            pageable: {
+                input: true,
+                numeric: false
+            },
+            columns: [{
+                    field: "models",
+                    title: "机型"
+                },
+                {
+                    field: "planNum",
+                    title: "项号"
+                },
+                {
+                    field: "SIN_Number",
+                    title: "件号"
+                },
+                {
+                    field: "eo",
+                    title: "名称"
+                },
+                {
+                    field: "eoe",
+                    title: "控制方式"
+                }
+            ],
+            editable: "popup"
+        });
+    </script>
+</body>
+
+</html>

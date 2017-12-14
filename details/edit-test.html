@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="m-dialog">
+        <div class="dialog-btn">
+            <button class="btn-save" type="button">保存</button>
+            <button class="k-warning btn-cancel" type="button">取消</button>
+        </div>
+        <div class="tiItemBox" style="min-width:1024px">
+            <table width="100%" class="noEditHead">
+                <thead>
+                    <tr>
+                        <th>
+                            机型
+                        </th>
+                        <th>维修方案项号</th>
+                        <th>工卡号</th>
+                        <th>循环EO</th>
+                        <th>ATA</th>
+                        <th>标题</th>
+                        <th>定期维修报告</th>
+                        <th>航线维修报告</th>
+                        <th>相关部件拆换</th>
+                        <th>不正常事件</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>737-678</td>
+                        <td>05-001</td>
+                        <td>XD-05-810-A</td>
+                        <td>EO-737-23-201715</td>
+                        <td>0500</td>
+                        <td>客舱压力渗漏测试。</td>
+                        <td>8/24</td>
+                        <td>2/12</td>
+                        <td>3/8</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="tabstrip">
+                <ul>
+                    <li class="k-state-active">定期维修报告</li>
+                    <li>航线维修报告</li>
+                    <li>不正常事件</li>
+                    <li>相关部件拆换</li>
+                    <li>维修方案项目定义信息</li>
+                </ul>
+                <div>
+                    <div class="conditionsBox">
+                        <div class="conItem">
+                            <label for="size3" class="conName">机型</label>
+                            </h4>
+                            <select id="size3" placeholder="Select size...">
+                                <option>机型一</option>
+                                <option>机型二</option>
+                                <option>机型三</option>
+                            </select>
+                        </div>
+                        <div class="conItem">
+                            <span class="conName">维修方案项号</span>
+                            <input class="k-textbox" />
+                        </div>
+                        <div class="conItem">
+                            <span class="conName">工卡号</span>
+                            <input class="k-textbox" />
+                        </div>
+                        <div class="conItem">
+                            <span class="conName">循环EO</span>
+                            <input class="k-textbox" />
+                        </div>
+                        <div class="conItem">
+                            <span class="conName">ATA</span>
+                            <input class="k-textbox" />
+                        </div>
+                        <div class="conItem">
+                            <span class="conName">标题</span>
+                            <input class="k-textbox" />
+                        </div>
+                        <div class="conItem">
+                            <label for="size4" class="conName">营运人</label>
+                            </h4>
+                            <select id="size4" placeholder="Select size...">
+                                <option>张三</option>
+                                <option>李四</option>
+                                <option>王五</option>
+                            </select>
+                        </div>
+                        <button class="k-primary btn-search" type="button">查询</button>
+                        <button class="btn-export" type="button">导出</button>
+                        <button class="btn-add" type="button">新增</button>
+                    </div>
+                    <div id="grid3" style="height: 100%; width: 100%;"></div>
+                </div>
+                <div>
+                    <div id="grid4" style="height: 100%; width: 100%;"></div>
+                </div>
+                <div>
+                    <div id="grid5" style="height: 100%; width: 100%;"></div>
+                </div>
+                <div>
+                    <div id="grid6" style="height: 100%; width: 100%;"></div>
+                </div>
+                <div>
+                    <span class="cloudy">&nbsp;</span>
+                    <div class="weather">
+                        <h2>16
+                            <span>&ordm;C</span>
+                        </h2>
+                        <p>Cloudy weather in Moscow.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $("#tabstrip").kendoTabStrip({
+            animation: {
+                open: {
+                    effects: "fadeIn"
+                }
+            }
+        });
+        $("#grid3").kendoGrid({
+            dataSource: {
+                data: products,
+                schema: {
+                    model: {
+                        fields: {
+                            models: {
+                                type: "string"
+                            },
+                            planNum: {
+                                type: "string"
+                            },
+                            SIN_Number: {
+                                type: "string"
+                            },
+                            eo: {
+                                type: "string"
+                            },
+                            ATA: {
+                                type: "string"
+                            },
+                            hresholdValue: {
+                                type: "string"
+                            },
+                            cycleValue: {
+                                type: "string"
+                            },
+                            zhTitle: {
+                                type: "string"
+                            },
+                            enTitle: {
+                                type: "string"
+                            },
+                            operator: {
+                                type: "string"
+                            }
+                        }
+                    }
+                },
+                pageSize: 20
+            },
+            scrollable: true,
+            sortable: true,
+            pageable: {
+                input: true,
+                numeric: false
+            },
+            columns: [{
+                command: [{
+                    text: "编辑",
+                    iconClass: "k-icon k-i-edit",
+                    click: function (e) {
+
+                        alert('编辑')
+                    }
+                }],
+                title: "操作"
+            },
+            {
+                field: "models",
+                title: "机型"
+            },
+            {
+                field: "planNum",
+                title: "维修方案项号"
+            },
+            {
+                field: "SIN_Number",
+                title: "工卡号"
+            },
+            {
+                field: "eo",
+                title: "循环EO"
+            },
+            {
+                field: "ATA",
+                title: "ATA"
+            },
+            {
+                field: "hresholdValue",
+                title: "门槛值"
+            },
+            {
+                field: "cycleValue",
+                title: "循环值"
+            },
+            {
+                field: "zhTitle",
+                title: "中文标题"
+            },
+            {
+                field: "enTitle",
+                title: "英文标题"
+            },
+            {
+                field: "operator",
+                title: "营运人"
+            }
+
+            ],
+            editable: "popup"
+        });
+        $("#grid4").kendoGrid({
+            dataSource: {
+                data: products,
+                schema: {
+                    model: {
+                        fields: {
+                            models: {
+                                type: "string"
+                            },
+                            planNum: {
+                                type: "string"
+                            },
+                            SIN_Number: {
+                                type: "string"
+                            },
+                            eo: {
+                                type: "string"
+                            },
+                            ATA: {
+                                type: "string"
+                            },
+                            hresholdValue: {
+                                type: "string"
+                            },
+                            cycleValue: {
+                                type: "string"
+                            },
+                            zhTitle: {
+                                type: "string"
+                            },
+                            enTitle: {
+                                type: "string"
+                            },
+                            operator: {
+                                type: "string"
+                            }
+                        }
+                    }
+                },
+                pageSize: 20
+            },
+            scrollable: true,
+            sortable: true,
+            pageable: {
+                input: true,
+                numeric: false
+            },
+            columns: [{
+                command: [{
+                    text: "编辑",
+                    iconClass: "k-icon k-i-edit",
+                    click: function (e) {
+
+                        alert('编辑')
+                    }
+                }],
+                title: "操作"
+            },
+            {
+                field: "models",
+                title: "机型"
+            },
+            {
+                field: "planNum",
+                title: "维修方案项号"
+            },
+            {
+                field: "SIN_Number",
+                title: "工卡号"
+            },
+            {
+                field: "eo",
+                title: "循环EO"
+            },
+            {
+                field: "ATA",
+                title: "ATA"
+            },
+            {
+                field: "hresholdValue",
+                title: "门槛值"
+            },
+            {
+                field: "cycleValue",
+                title: "循环值"
+            },
+            {
+                field: "zhTitle",
+                title: "中文标题"
+            },
+            {
+                field: "enTitle",
+                title: "英文标题"
+            },
+            {
+                field: "operator",
+                title: "营运人"
+            }
+
+            ],
+            editable: "popup"
+        });
+        $("#grid5").kendoGrid({
+            dataSource: {
+                data: products,
+                schema: {
+                    model: {
+                        fields: {
+                            models: {
+                                type: "string"
+                            },
+                            planNum: {
+                                type: "string"
+                            },
+                            SIN_Number: {
+                                type: "string"
+                            },
+                            eo: {
+                                type: "string"
+                            },
+                            ATA: {
+                                type: "string"
+                            },
+                            hresholdValue: {
+                                type: "string"
+                            },
+                            cycleValue: {
+                                type: "string"
+                            },
+                            zhTitle: {
+                                type: "string"
+                            },
+                            enTitle: {
+                                type: "string"
+                            },
+                            operator: {
+                                type: "string"
+                            }
+                        }
+                    }
+                },
+                pageSize: 20
+            },
+            scrollable: true,
+            sortable: true,
+            pageable: {
+                input: true,
+                numeric: false
+            },
+            columns: [{
+                command: [{
+                    text: "编辑",
+                    iconClass: "k-icon k-i-edit",
+                    click: function (e) {
+
+                        alert('编辑')
+                    }
+                }],
+                title: "操作"
+            },
+            {
+                field: "models",
+                title: "机型"
+            },
+            {
+                field: "planNum",
+                title: "维修方案项号"
+            },
+            {
+                field: "SIN_Number",
+                title: "工卡号"
+            },
+            {
+                field: "eo",
+                title: "循环EO"
+            },
+            {
+                field: "ATA",
+                title: "ATA"
+            },
+            {
+                field: "hresholdValue",
+                title: "门槛值"
+            },
+            {
+                field: "cycleValue",
+                title: "循环值"
+            },
+            {
+                field: "zhTitle",
+                title: "中文标题"
+            },
+            {
+                field: "enTitle",
+                title: "英文标题"
+            },
+            {
+                field: "operator",
+                title: "营运人"
+            }
+
+            ],
+            editable: "popup"
+        });
+        $("#grid6").kendoGrid({
+            dataSource: {
+                data: products,
+                schema: {
+                    model: {
+                        fields: {
+                            models: {
+                                type: "string"
+                            },
+                            planNum: {
+                                type: "string"
+                            },
+                            SIN_Number: {
+                                type: "string"
+                            },
+                            eo: {
+                                type: "string"
+                            },
+                            ATA: {
+                                type: "string"
+                            },
+                            hresholdValue: {
+                                type: "string"
+                            },
+                            cycleValue: {
+                                type: "string"
+                            },
+                            zhTitle: {
+                                type: "string"
+                            },
+                            enTitle: {
+                                type: "string"
+                            },
+                            operator: {
+                                type: "string"
+                            }
+                        }
+                    }
+                },
+                pageSize: 20
+            },
+            scrollable: true,
+            sortable: true,
+            pageable: {
+                input: true,
+                numeric: false
+            },
+            columns: [{
+                command: [{
+                    text: "编辑",
+                    iconClass: "k-icon k-i-edit",
+                    click: function (e) {
+
+                        alert('编辑')
+                    }
+                }],
+                title: "操作"
+            },
+            {
+                field: "models",
+                title: "机型"
+            },
+            {
+                field: "planNum",
+                title: "维修方案项号"
+            },
+            {
+                field: "SIN_Number",
+                title: "工卡号"
+            },
+            {
+                field: "eo",
+                title: "循环EO"
+            },
+            {
+                field: "ATA",
+                title: "ATA"
+            },
+            {
+                field: "hresholdValue",
+                title: "门槛值"
+            },
+            {
+                field: "cycleValue",
+                title: "循环值"
+            },
+            {
+                field: "zhTitle",
+                title: "中文标题"
+            },
+            {
+                field: "enTitle",
+                title: "英文标题"
+            },
+            {
+                field: "operator",
+                title: "营运人"
+            }
+
+            ],
+            editable: "popup"
+        });
+    </script>
+</body>
+</html>

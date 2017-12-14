@@ -1,0 +1,319 @@
+body {
+    font-size: 12px;
+    background: #ececec;
+}
+
+.k-splitbar {
+    background: #ececec;
+    border: none;
+}
+
+#vertical {
+    height: 100%;
+    margin: 0 auto;
+}
+
+#middle-pane {
+    color: #000;
+}
+
+#left-pane,
+#center-pane {
+    color: #000;
+}
+
+.pane-content {
+    padding: 0 10px;
+}
+
+
+/*top-pane*/
+
+.top-pane {
+    background: #20518b;
+    border-right: 1px solid #d1d1d1;
+}
+
+.logo {
+    width: 310px;
+    overflow: hidden;
+}
+
+.logo .logoImg {
+    float: left;
+    margin-top: 8px;
+    margin-left: 6px;
+}
+
+.logo .logoName {
+    float: right;
+    margin-top: 15px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.top-pane .topLink {
+    position: absolute;
+    right: 10px;
+    bottom: 6px;
+    color: white;
+}
+
+.top-pane .topLink a {
+    color: white;
+}
+
+.left-pane {
+    background: #f9f9f9;
+    border-right: 1px solid #d1d1d1;
+}
+
+
+/*m-treeview*/
+
+.m-treeview {
+    background: white;
+}
+
+.m-treeview .k-widget {
+    color: #666;
+}
+
+#treeview .k-sprite {
+    background-image: url(../images/coloricons-sprite.png);
+}
+
+.rootfolder {
+    background-position: 0 0;
+}
+
+.folder {
+    background-position: 0 -16px;
+}
+
+.pdf {
+    background-position: 0 -32px;
+}
+
+.doc {
+    background-position: 0 -48px;
+}
+
+.image {
+    background-position: 0 -64px;
+}
+
+#treeview>li>div {
+    user-select: none;
+    background: #eae8e8;
+    border-top: 1px solid #c5c5c5;
+    border-bottom: 1px solid #c5c5c5;
+    height: 28px;
+    line-height: 28px;
+    margin: 1px 0;
+}
+
+#treeview>li .k-item>div {
+    height: 28px;
+    line-height: 28px;
+}
+
+#treeview>li>div>.k-state-selected {
+    background: none;
+    color: #666;
+}
+
+.m-treeview .k-treeview .k-item>.k-group {
+    padding: 6px 0
+}
+
+.m-treeview .k-treeview .k-i-collapse,
+.m-treeview .k-treeview .k-i-expand {
+    margin-left: 0;
+}
+
+#treeview>.k-item {
+    padding-left: 0;
+}
+
+.m-treeview .k-item {
+    cursor: pointer;
+}
+
+.m-treeview .k-treeview .k-i-expand {
+    margin-top: -2px;
+}
+
+.m-treeview .k-state-hover {
+    background: none;
+}
+
+
+/*center-pane*/
+
+.center-pane {
+    background: #f9f9f9;
+}
+
+.conditionsBox {
+    padding: 10px;
+}
+
+.conItem {
+    display: inline-block;
+    margin: 6px 5px;
+}
+
+.conItem .conName {
+    display: inline-block;
+    width: 80px;
+    text-align: right;
+    padding-right: 6px;
+}
+
+.conItem input {
+    margin-left: 4px;
+}
+
+
+
+
+/* window */
+.m-dialog {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+.m-dialog textarea {
+    min-height: 50px;
+}
+.dialog-btn {
+    padding: 5px;
+    text-align: right;
+    padding-right: 20px;
+    background: white;
+    border-bottom: 1px solid #cccccc;
+}
+.tiItemBox {
+    position: absolute;
+    top: 35px;
+    bottom: 0;
+    border: 1px solid #eeeeee;
+    overflow: auto;
+}
+
+.tiItemBox .tiTitle {
+    background-color: #8bc8f9;
+    padding: 6px;
+}
+
+
+.noEditHead td {
+    text-align: center;
+}
+
+
+/* kendoui css set */
+
+.k-alt,
+.k-pivot-layout>tbody>tr:first-child>td:first-child,
+.k-resource.k-alt,
+.k-separator {
+    background-color: #DFF2FF;
+}
+
+.k-grid tr:hover {
+    background-color: #80bce2;
+}
+
+.k-button,
+.k-button.k-state-active,
+.k-button:active {
+    background-image: none;
+    background-color: #367bb5;
+    border-color: #3271a7;
+    color: white;
+}
+
+.k-primary,
+.k-primary.k-state-active,
+.k-primary:active {
+    background-color: #5fb860;
+    border-color: #54b155;
+}
+
+.k-button.k-state-hover,
+.k-button:hover {
+    background-image: none;
+    background-color: #367bb5;
+    border-color: #3271a7;
+    color: white;
+}
+
+.k-primary.k-state-hover,
+.k-primary:hover {
+    background-color: #5fb860;
+    border-color: #54b155;
+}
+
+.k-grid td.k-state-selected:hover,
+.k-grid tr.k-state-selected:hover {
+    background-color: #367bb5;
+    border-color: #3271a7;
+}
+
+.k-button.k-state-focused,
+.k-button:focus {
+    box-shadow: none;
+    border-color: #3271a7;
+}
+
+.k-primary.k-state-focused,
+.k-primary:focus {
+    box-shadow: none;
+    border-color: #54b155;
+}
+
+.k-warning,
+.k-warning:hover,
+.k-warning:focus {
+    background-color: #eeac57;
+    border-color: #d8a714;
+}
+
+.k-danger,
+.k-danger:hover {
+    background-color: #d75452;
+    border-color: #c51a18;
+}
+
+.k-draghandle.k-state-selected:hover,
+.k-ghost-splitbar-horizontal,
+.k-ghost-splitbar-vertical,
+.k-list>.k-state-highlight,
+.k-list>.k-state-selected,
+.k-marquee-color,
+.k-panel>.k-state-selected,
+.k-scheduler .k-scheduler-toolbar .k-state-selected,
+.k-scheduler .k-today.k-state-selected,
+.k-state-selected,
+.k-state-selected:link,
+.k-state-selected:visited,
+.k-tool.k-state-selected {
+    background-color: #0a7ac1;
+}
+
+.k-list>.k-state-focused.k-state-selected,
+.k-listview>.k-state-focused.k-state-selected,
+.k-state-focused.k-state-selected,
+td.k-state-focused.k-state-selected {
+    box-shadow: none;
+}
+
+.k-button:focus:active:not(.k-state-disabled):not([disabled]) {
+    box-shadow: none;
+}
