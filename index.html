@@ -117,7 +117,7 @@
                             <div class="conItem">
                                 <label for="size" class="conName">机型</label>
                                 </h4>
-                                <select id="size" placeholder="Select size...">
+                                <select id="size" multiple="multiple"  placeholder="Select size..." style="height:25px;width:150px;overflow:hidden; float:right;">
                                     <option>机型一</option>
                                     <option>机型二</option>
                                     <option>机型三</option>
@@ -388,10 +388,11 @@
 
                 ]
             });
-           
             
             //
-            $("#size").kendoComboBox();
+            $("#size").kendoMultiSelect({
+                
+            }).data("kendoMultiSelect");
             $("#size2").kendoComboBox();
             $("#size3").kendoComboBox();
             // 查询按钮
