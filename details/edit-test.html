@@ -122,11 +122,7 @@
     </div>
     <script>
         $("#tabstrip").kendoTabStrip({
-            animation: {
-                open: {
-                    effects: "fadeIn"
-                }
-            }
+            animation: false
         });
         $("#grid3").kendoGrid({
             dataSource: {
@@ -180,7 +176,7 @@
                     text: "编辑",
                     iconClass: "k-icon k-i-edit",
                     click: function (e) {
-
+                        e.preventDefault();
                         alert('编辑')
                     }
                 }],
@@ -282,7 +278,7 @@
                     text: "编辑",
                     iconClass: "k-icon k-i-edit",
                     click: function (e) {
-
+                        e.preventDefault();
                         alert('编辑')
                     }
                 }],

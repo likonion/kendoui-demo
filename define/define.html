@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+<div class="insidePage" style="height:100%;">
+    <!-- 查询条件块 -->
+    <div>
+        <div class="conditionsBox">
+            <div class="conItem">
+                <label for="size" class="conName">机型</label>
+                </h4>
+                <select id="size" multiple="multiple" placeholder="Select size..." style="height:25px;width:150px;overflow:hidden; float:right;">
+                    <option>机型一</option>
+                    <option>机型二</option>
+                    <option>机型三</option>
+                </select>
+            </div>
+            <div class="conItem">
+                <span class="conName">维修方案项号</span>
+                <input class="k-textbox" />
+            </div>
+            <div class="conItem">
+                <span class="conName">工卡号</span>
+                <input class="k-textbox" />
+            </div>
+            <div class="conItem">
+                <span class="conName">循环EO</span>
+                <input class="k-textbox" />
+            </div>
+            <div class="conItem">
+                <span class="conName">ATA</span>
+                <input class="k-textbox" />
+            </div>
+            <div class="conItem">
+                <span class="conName">标题</span>
+                <input class="k-textbox" />
+            </div>
+            <div class="conItem">
+                <label for="size2" class="conName">营运人</label>
+                </h4>
+                <select id="size2" placeholder="Select size...">
+                    <option>张三</option>
+                    <option>李四</option>
+                    <option>王五</option>
+                </select>
+            </div>
+            <!-- 按钮 -->
+            <button class="k-primary btn-export" type="button">导出</button>
+            <button class="btn-search" type="button">查询</button>
+            <button class="btn-add" type="button">新增</button>
+            <button id="btn-all" type="button">显示所有按钮样式</button>
+        </div>
+    </div>
+    <!-- 主页grid部分 -->
+    <div>
+        <div id="grid" ></div>
+        <!-- 弹窗 -->
+        <div id="dialog1"></div>
+        <div id="dialog2"></div>
+        <div id="dialog3"></div>
+    </div>
+</div>
+    <script src="js/products.js"></script>
+    <script>
+        $(".insidePage").kendoSplitter({
+            orientation: "vertical",
+            panes: [{
+                    collapsible: false,
+                    resizable: false,
+                    size: "100px"
+                },
+                {
+                    collapsible: false,
+                    resizable: false,
+                    scrollable: false
+                }
+            ]
+        });
+        // 弹窗声明
+        $("#dialog1").kendoWindow({
+            animation: false,
+            title: "维修方案项目定义详情",
+            width: "90%",
+            height: "50%",
+            modal: true,
+            visible: false,
+            content: "details/add-test.html",
+            actions: [
+                "Minimize",
+                "Maximize",
+                "Close"
+            ]
+        }).data("kendoWindow").center();
+        $("#dialog2").kendoWindow({
+            animation: false,
+            title: "维修数据定义查询详情",
+            width: "90%",
+            height: "50%",
+            content: "details/edit-test.html",
+            modal: true,
+            visible: false,
+            actions: [
+                "Minimize",
+                "Maximize",
+                "Close"
+            ]
+        }).data("kendoWindow").center();
+
+
+        $("#btn-all").kendoButton().click(function () {
+            $("#dialog3").data("kendoWindow").open();
+        })
+        //
+        $("#grid").kendoGrid({
+            dataSource: {
+                data: products,
+                schema: {
+                    model: {
+                        fields: {
+                            models: {
+                                type: "string"
+                            },
+                            planNum: {
+                                type: "string"
+                            },
+                            SIN_Number: {
+                                type: "string"
+                            },
+                            eo: {
+                                type: "string"
+                            },
+                            ATA: {
+                                type: "string"
+                            },
+                            hresholdValue: {
+                                type: "string"
+                            },
+                            cycleValue: {
+                                type: "string"
+                            },
+                            zhTitle: {
+                                type: "string"
+                            },
+                            enTitle: {
+                                type: "string"
+                            },
+                            operator: {
+                                type: "string"
+                            }
+                        }
+                    }
+                },
+                pageSize: 20
+            },
+            height: "100%",
+            sortable: true,
+            selectable: true,
+            resizable: true,
+            filterable: true, // 过滤器
+            editable: true,
+            pageable: {
+                input: true,
+                numeric: false
+            },
+            columns: [{
+                    command: [{
+                        name: "编辑",
+                        className: "k-primary",
+                        iconClass: "k-icon k-i-edit",
+                        click: function (e) {
+                            e.preventDefault();
+                            $('#dialog2').data("kendoWindow").open()
+                        }
+                    }],
+                    title: "操作",
+                    width: "100px"
+                },
+                {
+                    field: "Choices",
+                    title: "My Choices",
+                    width: "150px",
+                    editor: function (container, options) {
+                        $('<input required name="' + options.field + '"/>').appendTo(
+                            container).kendoDropDownList({
+                            dataSource: [{
+                                    Name: "Parent1",
+                                    Id: 1
+                                },
+                                {
+                                    Name: "Parent2",
+                                    Id: 2
+                                },
+                                {
+                                    Name: "Parent3",
+                                    Id: 3
+                                }
+                            ],
+                            dataTextField: "Name",
+                            dataValueField: "Id",
+                            autobind: false
+                        });
+                    },
+                    template: "#=Choices.Name#"
+                },
+                {
+                    field: "models",
+                    title: "机型",
+                    encoded: false,
+                    width: "100px"
+                },
+                {
+                    field: "planNum",
+                    title: "维修方案项号",
+                    width: "100px"
+                },
+                {
+                    field: "SIN_Number",
+                    title: "工卡号",
+                    width: "100px"
+                },
+                {
+                    field: "eo",
+                    title: "循环EO",
+                    width: "100px"
+                },
+                {
+                    field: "ATA",
+                    title: "ATA",
+                    width: "100px"
+                },
+                {
+                    field: "hresholdValue",
+                    title: "门槛值",
+                    width: "100px"
+                },
+                {
+                    field: "cycleValue",
+                    title: "循环值",
+                    width: "100px"
+                },
+                {
+                    field: "zhTitle",
+                    title: "中文标题",
+                    width: "150px"
+                },
+                {
+                    field: "enTitle",
+                    title: "英文标题",
+                    width: "200px"
+                },
+                {
+                    field: "operator",
+                    title: "营运人",
+                    width: "100px"
+                }
+
+            ]
+        });
+
+        //
+        $("#size").kendoMultiSelect({
+
+        }).data("kendoMultiSelect");
+        $("#size2").kendoComboBox();
+        $("#size3").kendoComboBox();
+        // 查询按钮
+        $(".btn-search").kendoButton({
+            icon: "search"
+        });
+        // 导出按钮
+        $(".btn-export").kendoButton({
+            icon: "download"
+        });
+        // 新增按钮
+        $(".btn-add").kendoButton({
+            icon: "plus-circle"
+        }).click(function () {
+            $("#dialog1").data("kendoWindow").open()
+        });
+        $("#dialog3").kendoWindow({
+            animation: false,
+            title: "所有按钮样式",
+            width: "50%",
+            height: "50%",
+            modal: true,
+            visible: false,
+            content: "details/button.html",
+            actions: [
+                "Minimize",
+                "Maximize",
+                "Close"
+            ]
+        }).data("kendoWindow").center();
+    </script>
+</body>
+
+</html>
