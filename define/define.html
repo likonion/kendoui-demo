@@ -2,64 +2,64 @@
 <html lang="en">
 
 <body>
-<div class="insidePage" style="height:100%;">
-    <!-- 查询条件块 -->
-    <div>
-        <div class="conditionsBox">
-            <div class="conItem">
-                <label for="size" class="conName">机型</label>
-                </h4>
-                <select id="size" multiple="multiple" placeholder="Select size..." style="height:25px;width:150px;overflow:hidden; float:right;">
-                    <option>机型一</option>
-                    <option>机型二</option>
-                    <option>机型三</option>
-                </select>
+    <div class="insidePage" style="height:100%;">
+        <!-- 查询条件块 -->
+        <div>
+            <div class="conditionsBox">
+                <div class="conItem">
+                    <label for="size" class="conName">机型</label>
+                    </h4>
+                    <select id="size" multiple="multiple" placeholder="Select size..." style="height:25px;width:150px;overflow:hidden; float:right;">
+                        <option>机型一</option>
+                        <option>机型二</option>
+                        <option>机型三</option>
+                    </select>
+                </div>
+                <div class="conItem">
+                    <span class="conName">维修方案项号</span>
+                    <input class="k-textbox" />
+                </div>
+                <div class="conItem">
+                    <span class="conName">工卡号</span>
+                    <input class="k-textbox" />
+                </div>
+                <div class="conItem">
+                    <span class="conName">循环EO</span>
+                    <input class="k-textbox" />
+                </div>
+                <div class="conItem">
+                    <span class="conName">ATA</span>
+                    <input class="k-textbox" />
+                </div>
+                <div class="conItem">
+                    <span class="conName">标题</span>
+                    <input class="k-textbox" />
+                </div>
+                <div class="conItem">
+                    <label for="size2" class="conName">营运人</label>
+                    </h4>
+                    <select id="size2" placeholder="Select size...">
+                        <option>张三</option>
+                        <option>李四</option>
+                        <option>王五</option>
+                    </select>
+                </div>
+                <!-- 按钮 -->
+                <button class="k-primary btn-export" type="button">导出</button>
+                <button class="btn-search" type="button">查询</button>
+                <button class="btn-add" type="button">新增</button>
+                <button id="btn-all" type="button">显示所有按钮样式</button>
             </div>
-            <div class="conItem">
-                <span class="conName">维修方案项号</span>
-                <input class="k-textbox" />
-            </div>
-            <div class="conItem">
-                <span class="conName">工卡号</span>
-                <input class="k-textbox" />
-            </div>
-            <div class="conItem">
-                <span class="conName">循环EO</span>
-                <input class="k-textbox" />
-            </div>
-            <div class="conItem">
-                <span class="conName">ATA</span>
-                <input class="k-textbox" />
-            </div>
-            <div class="conItem">
-                <span class="conName">标题</span>
-                <input class="k-textbox" />
-            </div>
-            <div class="conItem">
-                <label for="size2" class="conName">营运人</label>
-                </h4>
-                <select id="size2" placeholder="Select size...">
-                    <option>张三</option>
-                    <option>李四</option>
-                    <option>王五</option>
-                </select>
-            </div>
-            <!-- 按钮 -->
-            <button class="k-primary btn-export" type="button">导出</button>
-            <button class="btn-search" type="button">查询</button>
-            <button class="btn-add" type="button">新增</button>
-            <button id="btn-all" type="button">显示所有按钮样式</button>
+        </div>
+        <!-- 主页grid部分 -->
+        <div>
+            <div id="grid"></div>
+            <!-- 弹窗 -->
+            <div id="dialog1"></div>
+            <div id="dialog2"></div>
+            <div id="dialog3"></div>
         </div>
     </div>
-    <!-- 主页grid部分 -->
-    <div>
-        <div id="grid" ></div>
-        <!-- 弹窗 -->
-        <div id="dialog1"></div>
-        <div id="dialog2"></div>
-        <div id="dialog3"></div>
-    </div>
-</div>
     <script src="js/products.js"></script>
     <script>
         $(".insidePage").kendoSplitter({
@@ -77,20 +77,7 @@
             ]
         });
         // 弹窗声明
-        $("#dialog1").kendoWindow({
-            animation: false,
-            title: "维修方案项目定义详情",
-            width: "90%",
-            height: "50%",
-            modal: true,
-            visible: false,
-            content: "details/add-test.html",
-            actions: [
-                "Minimize",
-                "Maximize",
-                "Close"
-            ]
-        }).data("kendoWindow").center();
+
         $("#dialog2").kendoWindow({
             animation: false,
             title: "维修数据定义查询详情",
@@ -271,11 +258,74 @@
         $(".btn-export").kendoButton({
             icon: "download"
         });
+        // 创建窗体
+        $("#dialog1").kendoWindow({
+            animation: false,
+            title: "维修方案项目定义详情",
+            width: "90%",
+            height: "50%",
+            modal: true,
+            visible: false,
+            // content: "details/add-test.html",
+            actions: [
+                "Minimize",
+                "Maximize",
+                "Close"
+            ],
+            open: OnOpen,
+            refresh: OnRefresh
+        })
+    
+        function OnOpen() {
+            var wnd = $("#dialog1").data("kendoWindow");
+            kendo.ui.progress(wnd.element, true);
+        }
+
+        function OnRefresh() {
+            var wnd = $("#dialog1").data("kendoWindow");
+            // kendo.ui.progress(wnd.element, false);
+        }
         // 新增按钮
         $(".btn-add").kendoButton({
             icon: "plus-circle"
         }).click(function () {
-            $("#dialog1").data("kendoWindow").open()
+            var wnd = $("#dialog1").data("kendoWindow");
+            wnd.center().open()
+             $.ajax({
+                url: "details/add-test.html",
+                dataType: "html",
+                success: function (data) {
+                    // document.title = page;
+                    // $("#center-pane").html(data)
+                    // wnd.refresh(data).center().open()
+                    wnd.content(data)
+                    kendo.ui.progress(wnd.element, false);
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status);
+                }
+            })
+            // wnd.refresh({
+            //     url: "details/add-test.html",
+            //     type: "get",
+            //     dataType: "html"
+            // }).center().open()
+            // setTimeout(() => {
+            //     wnd.center().open();
+            // }, 1000);
+
+
+            // wnd.refresh({
+            //     url: "details/add-test.html"
+            // });
+            return false;
+            // console.log($("#dialog1").data("kendoWindow").element)
+            // kendo.ui.progress($("#dialog1").data("kendoWindow").element, true)
+            // 演示加载动画，实际使用根据ajax的状态来判断
+            // var timer = setTimeout(() => {
+            //     $("#dialog1").data("kendoWindow").center().open()
+            //     kendo.ui.progress($("#dialog1").data("kendoWindow").element, false)
+            // }, 1000);
         });
         $("#dialog3").kendoWindow({
             animation: false,
@@ -291,6 +341,7 @@
                 "Close"
             ]
         }).data("kendoWindow").center();
+        
     </script>
 </body>
 
