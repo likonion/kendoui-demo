@@ -131,16 +131,18 @@
             }
         });
         router.route("(/:category)/:page", function (category, page) {
-            // kendo.ui.progress(windowWidget.element, true)
+            var mainBox = $("#center-pane");
+            mainBox.html('');
+            kendo.ui.progress(mainBox, true)
             var newUrl = category ? category + '/' + page + '.html' : page + '.html';
-            // $("#center-pane").kendoSplitter({ panes: [contentUrl: newUrl] })
             // 点击左侧树异步加载相应模块到右边显示
             $.ajax({
                 url: newUrl,
                 dataType: "html",
                 success: function (data) {
                     document.title = page;
-                    $("#center-pane").html(data)
+                    kendo.ui.progress(mainBox, false)
+                    mainBox.html(data);
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     console.log(XMLHttpRequest.status);
