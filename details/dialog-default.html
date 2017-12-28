@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="m-dialog">
+        <!-- 右上角统一的弹窗操作按钮 -->
+        <div class="dialog-btn">
+            <button class="btn-save" type="button">保存</button>
+            <button class="k-warning btn-cancel" type="button">取消</button>
+        </div>
+        <div class="tiItemBox" style="min-width:1024px">
+            这里放弹窗的内容
+        </div>
+    </div>
+    <script>
+        // 保存按钮
+        $(".btn-save").kendoButton({
+            icon: "save"
+        });
+        // 取消按钮
+        $(".btn-cancel").kendoButton({
+            icon: "close",
+            click: function () {
+                $("#dialog").data('kendoWindow').close();
+            }
+        });
+    </script>
+</body>
+
+</html>

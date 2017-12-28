@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    
+
 </head>
 
 <body>
@@ -71,7 +71,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div id="add-test-grid" style="height: 100%; width: 100%;"></div>
+                                            <div id="add-test-grid" style="height: 300px; width: 100%;"></div>
                                         </td>
                                     </tr>
                                 </table>
@@ -200,7 +200,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div id="add-test-grid2" style="height: 100%; width: 100%;"></div>
+                                            <div id="add-test-grid2" style="height: 300px; width: 100%;"></div>
                                         </td>
                                     </tr>
                                 </table>
@@ -315,12 +315,22 @@
             </div>
             <div class="tiTitle">维修方案项目修订记录</div>
             <div class="tiMain">
-                <div id="grid2" style="height: 100%; width: 100%;"></div>
+                <div id="grid2" style="height: 300px; width: 100%;"></div>
             </div>
         </div>
     </div>
     <script>
-        $('button').kendoButton();
+        // 保存按钮
+        $(".btn-save").kendoButton({
+            icon: "save"
+        });
+        // 取消按钮
+        $(".btn-cancel").kendoButton({
+            icon: "close",
+            click: function(){
+                $("#dialog").data('kendoWindow').close();
+            }
+        });
         $("#grid2").kendoGrid({
             dataSource: {
                 data: products,

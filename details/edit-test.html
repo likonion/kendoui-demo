@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <div class="m-dialog">
         <div class="dialog-btn">
@@ -97,7 +99,7 @@
                         <button class="btn-export" type="button">导出</button>
                         <button class="btn-add" type="button">新增</button>
                     </div>
-                    <div id="grid3" style="height: 100%; width: 100%;"></div>
+                    <div id="grid3" style="height: 300px; width: 100%;"></div>
                 </div>
                 <div>
                     <div id="grid4" style="height: 100%; width: 100%;"></div>
@@ -121,6 +123,17 @@
         </div>
     </div>
     <script>
+        // 保存按钮
+        $(".btn-save").kendoButton({
+            icon: "save"
+        });
+        // 取消按钮
+        $(".btn-cancel").kendoButton({
+            icon: "close",
+            click: function () {
+                $("#dialog").data('kendoWindow').close();
+            }
+        });
         $("#tabstrip").kendoTabStrip({
             animation: false
         });
@@ -172,56 +185,56 @@
                 numeric: false
             },
             columns: [{
-                command: [{
-                    text: "编辑",
-                    iconClass: "k-icon k-i-edit",
-                    click: function (e) {
-                        e.preventDefault();
-                        alert('编辑')
-                    }
-                }],
-                title: "操作"
-            },
-            {
-                field: "models",
-                title: "机型"
-            },
-            {
-                field: "planNum",
-                title: "维修方案项号"
-            },
-            {
-                field: "SIN_Number",
-                title: "工卡号"
-            },
-            {
-                field: "eo",
-                title: "循环EO"
-            },
-            {
-                field: "ATA",
-                title: "ATA"
-            },
-            {
-                field: "hresholdValue",
-                title: "门槛值"
-            },
-            {
-                field: "cycleValue",
-                title: "循环值"
-            },
-            {
-                field: "zhTitle",
-                title: "中文标题"
-            },
-            {
-                field: "enTitle",
-                title: "英文标题"
-            },
-            {
-                field: "operator",
-                title: "营运人"
-            }
+                    command: [{
+                        text: "编辑",
+                        iconClass: "k-icon k-i-edit",
+                        click: function (e) {
+                            e.preventDefault();
+                            alert('编辑')
+                        }
+                    }],
+                    title: "操作"
+                },
+                {
+                    field: "models",
+                    title: "机型"
+                },
+                {
+                    field: "planNum",
+                    title: "维修方案项号"
+                },
+                {
+                    field: "SIN_Number",
+                    title: "工卡号"
+                },
+                {
+                    field: "eo",
+                    title: "循环EO"
+                },
+                {
+                    field: "ATA",
+                    title: "ATA"
+                },
+                {
+                    field: "hresholdValue",
+                    title: "门槛值"
+                },
+                {
+                    field: "cycleValue",
+                    title: "循环值"
+                },
+                {
+                    field: "zhTitle",
+                    title: "中文标题"
+                },
+                {
+                    field: "enTitle",
+                    title: "英文标题"
+                },
+                {
+                    field: "operator",
+                    title: "营运人"
+                }
 
             ],
             editable: "popup"
@@ -274,56 +287,56 @@
                 numeric: false
             },
             columns: [{
-                command: [{
-                    text: "编辑",
-                    iconClass: "k-icon k-i-edit",
-                    click: function (e) {
-                        e.preventDefault();
-                        alert('编辑')
-                    }
-                }],
-                title: "操作"
-            },
-            {
-                field: "models",
-                title: "机型"
-            },
-            {
-                field: "planNum",
-                title: "维修方案项号"
-            },
-            {
-                field: "SIN_Number",
-                title: "工卡号"
-            },
-            {
-                field: "eo",
-                title: "循环EO"
-            },
-            {
-                field: "ATA",
-                title: "ATA"
-            },
-            {
-                field: "hresholdValue",
-                title: "门槛值"
-            },
-            {
-                field: "cycleValue",
-                title: "循环值"
-            },
-            {
-                field: "zhTitle",
-                title: "中文标题"
-            },
-            {
-                field: "enTitle",
-                title: "英文标题"
-            },
-            {
-                field: "operator",
-                title: "营运人"
-            }
+                    command: [{
+                        text: "编辑",
+                        iconClass: "k-icon k-i-edit",
+                        click: function (e) {
+                            e.preventDefault();
+                            alert('编辑')
+                        }
+                    }],
+                    title: "操作"
+                },
+                {
+                    field: "models",
+                    title: "机型"
+                },
+                {
+                    field: "planNum",
+                    title: "维修方案项号"
+                },
+                {
+                    field: "SIN_Number",
+                    title: "工卡号"
+                },
+                {
+                    field: "eo",
+                    title: "循环EO"
+                },
+                {
+                    field: "ATA",
+                    title: "ATA"
+                },
+                {
+                    field: "hresholdValue",
+                    title: "门槛值"
+                },
+                {
+                    field: "cycleValue",
+                    title: "循环值"
+                },
+                {
+                    field: "zhTitle",
+                    title: "中文标题"
+                },
+                {
+                    field: "enTitle",
+                    title: "英文标题"
+                },
+                {
+                    field: "operator",
+                    title: "营运人"
+                }
 
             ],
             editable: "popup"
@@ -376,56 +389,56 @@
                 numeric: false
             },
             columns: [{
-                command: [{
-                    text: "编辑",
-                    iconClass: "k-icon k-i-edit",
-                    click: function (e) {
+                    command: [{
+                        text: "编辑",
+                        iconClass: "k-icon k-i-edit",
+                        click: function (e) {
 
-                        alert('编辑')
-                    }
-                }],
-                title: "操作"
-            },
-            {
-                field: "models",
-                title: "机型"
-            },
-            {
-                field: "planNum",
-                title: "维修方案项号"
-            },
-            {
-                field: "SIN_Number",
-                title: "工卡号"
-            },
-            {
-                field: "eo",
-                title: "循环EO"
-            },
-            {
-                field: "ATA",
-                title: "ATA"
-            },
-            {
-                field: "hresholdValue",
-                title: "门槛值"
-            },
-            {
-                field: "cycleValue",
-                title: "循环值"
-            },
-            {
-                field: "zhTitle",
-                title: "中文标题"
-            },
-            {
-                field: "enTitle",
-                title: "英文标题"
-            },
-            {
-                field: "operator",
-                title: "营运人"
-            }
+                            alert('编辑')
+                        }
+                    }],
+                    title: "操作"
+                },
+                {
+                    field: "models",
+                    title: "机型"
+                },
+                {
+                    field: "planNum",
+                    title: "维修方案项号"
+                },
+                {
+                    field: "SIN_Number",
+                    title: "工卡号"
+                },
+                {
+                    field: "eo",
+                    title: "循环EO"
+                },
+                {
+                    field: "ATA",
+                    title: "ATA"
+                },
+                {
+                    field: "hresholdValue",
+                    title: "门槛值"
+                },
+                {
+                    field: "cycleValue",
+                    title: "循环值"
+                },
+                {
+                    field: "zhTitle",
+                    title: "中文标题"
+                },
+                {
+                    field: "enTitle",
+                    title: "英文标题"
+                },
+                {
+                    field: "operator",
+                    title: "营运人"
+                }
 
             ],
             editable: "popup"
@@ -478,60 +491,61 @@
                 numeric: false
             },
             columns: [{
-                command: [{
-                    text: "编辑",
-                    iconClass: "k-icon k-i-edit",
-                    click: function (e) {
+                    command: [{
+                        text: "编辑",
+                        iconClass: "k-icon k-i-edit",
+                        click: function (e) {
 
-                        alert('编辑')
-                    }
-                }],
-                title: "操作"
-            },
-            {
-                field: "models",
-                title: "机型"
-            },
-            {
-                field: "planNum",
-                title: "维修方案项号"
-            },
-            {
-                field: "SIN_Number",
-                title: "工卡号"
-            },
-            {
-                field: "eo",
-                title: "循环EO"
-            },
-            {
-                field: "ATA",
-                title: "ATA"
-            },
-            {
-                field: "hresholdValue",
-                title: "门槛值"
-            },
-            {
-                field: "cycleValue",
-                title: "循环值"
-            },
-            {
-                field: "zhTitle",
-                title: "中文标题"
-            },
-            {
-                field: "enTitle",
-                title: "英文标题"
-            },
-            {
-                field: "operator",
-                title: "营运人"
-            }
+                            alert('编辑')
+                        }
+                    }],
+                    title: "操作"
+                },
+                {
+                    field: "models",
+                    title: "机型"
+                },
+                {
+                    field: "planNum",
+                    title: "维修方案项号"
+                },
+                {
+                    field: "SIN_Number",
+                    title: "工卡号"
+                },
+                {
+                    field: "eo",
+                    title: "循环EO"
+                },
+                {
+                    field: "ATA",
+                    title: "ATA"
+                },
+                {
+                    field: "hresholdValue",
+                    title: "门槛值"
+                },
+                {
+                    field: "cycleValue",
+                    title: "循环值"
+                },
+                {
+                    field: "zhTitle",
+                    title: "中文标题"
+                },
+                {
+                    field: "enTitle",
+                    title: "英文标题"
+                },
+                {
+                    field: "operator",
+                    title: "营运人"
+                }
 
             ],
             editable: "popup"
         });
     </script>
 </body>
+
 </html>

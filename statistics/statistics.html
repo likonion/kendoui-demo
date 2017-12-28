@@ -61,9 +61,7 @@
             <div style="height:100%">
                 <div id="grid" style="height:100%;"></div>
                 <!-- 弹窗 -->
-                <div id="dialog1"></div>
-                <div id="dialog2"></div>
-                <div id="dialog3"></div>
+                <div id="dialog"></div>
             </div>
         </div>
         <div>2</div>
@@ -96,7 +94,28 @@
         $(window).resize(function () {
             resizeAll();
         });
-
+        // 创建窗体
+        $("#dialog").kendoWindow({
+            animation: false,
+            width: "90%",
+            height: "50%",
+            modal: true,
+            visible: false,
+            actions: [
+                "Minimize",
+                "Maximize",
+                "Close"
+            ],
+            open: function () {
+                kendo.ui.progress(this.element, true);
+            },
+            refresh: function () {
+                kendo.ui.progress(this.element, false);
+            },
+            close: function () {
+                this.content('')
+            }
+        })
 
         $(".hasTabPage").kendoSplitter({
             orientation: "vertical",
@@ -112,39 +131,18 @@
                 }
             ]
         });
-        // 弹窗声明
-        $("#dialog1").kendoWindow({
-            animation: false,
-            title: "维修方案项目定义详情",
-            width: "90%",
-            height: "50%",
-            modal: true,
-            visible: false,
-            content: "details/add-test.html",
-            actions: [
-                "Minimize",
-                "Maximize",
-                "Close"
-            ]
-        }).data("kendoWindow").center();
-        $("#dialog2").kendoWindow({
-            animation: false,
-            title: "维修数据定义查询详情",
-            width: "90%",
-            height: "50%",
-            content: "details/edit-test.html",
-            modal: true,
-            visible: false,
-            actions: [
-                "Minimize",
-                "Maximize",
-                "Close"
-            ]
-        }).data("kendoWindow").center();
 
 
+        // 显示所有按钮
         $("#btn-all").kendoButton().click(function () {
-            $("#dialog3").data("kendoWindow").open();
+            var wnd = $("#dialog").data("kendoWindow");
+            console.log(wnd)
+            wnd.title("所有按钮样式")
+                .center()
+                .open()
+                .refresh({
+                    url: "details/button.html"
+                })
         })
         //
         $("#grid").kendoGrid({
@@ -205,7 +203,13 @@
                         iconClass: "k-icon k-i-edit",
                         click: function (e) {
                             e.preventDefault();
-                            $('#dialog2').data("kendoWindow").open()
+                            var wnd = $("#dialog").data("kendoWindow");
+                            wnd.title("维修方案项目定义详情")
+                                .center()
+                                .open()
+                                .refresh({
+                                    url: "details/edit-test.html"
+                                })
                         }
                     }],
                     title: "操作",
@@ -311,22 +315,14 @@
         $(".btn-add").kendoButton({
             icon: "plus-circle"
         }).click(function () {
-            $("#dialog1").data("kendoWindow").open()
+            var wnd = $("#dialog").data("kendoWindow");
+            wnd.title("新增维修方案项目定义详情")
+                .center()
+                .open()
+                .refresh({
+                    url: "details/add-test.html"
+                })
         });
-        $("#dialog3").kendoWindow({
-            animation: false,
-            title: "所有按钮样式",
-            width: "50%",
-            height: "50%",
-            modal: true,
-            visible: false,
-            content: "details/button.html",
-            actions: [
-                "Minimize",
-                "Maximize",
-                "Close"
-            ]
-        }).data("kendoWindow").center();
     </script>
 </body>
 
