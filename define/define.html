@@ -154,7 +154,37 @@
             selectable: true,
             resizable: true,
             filterable: true, // 过滤器
+            // filterable: {
+            //     messages: {
+            //         info: "显示过滤的内容：",
+            //         and: "和",
+            //         or: "或",
+            //         filter: "应用",
+            //         clear: "清除"
+            //     },
+            //     operators: {
+            //         string: {
+            //             eq: "Equal to",
+            //             neq: "Not equal to",
+            //             isnull: "Null",
+            //             isnotnull: "Not null",
+            //             isempty: "Empty",
+            //             isnotempty: "Not empty",
+            //             startswith: "Starts",
+            //             contains: "Contains",
+            //             doesnotcontain: "Doesn't contain",
+            //             endswith: "Ends"
+            //         },
+            //         number: {
+            //             eq: "Equal to",
+            //             neq: "Not equal to",
+            //             isnull: "Null",
+            //             isnotnull: "Not null",
+            //         }
+            //     }
+            // },
             editable: true,
+            // columnResizeHandleWidth: 30,
             pageable: {
                 input: true,
                 numeric: false
@@ -244,7 +274,7 @@
                 {
                     field: "zhTitle",
                     title: "中文标题",
-                    width: "150px"
+                    width: "50px"
                 },
                 {
                     field: "enTitle",
