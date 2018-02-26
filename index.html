@@ -36,78 +36,8 @@
             <div id="horizontal" style="height: 100%; width: 100%;">
                 <!-- 左边树 -->
                 <div id="left-pane" class="left-pane" style="height: 100%; width: 100%;">
-                    <div class="m-treeview" style="height: 100%; width: 100%;">
-                        <ul id="treeview">
-                            <li data-expanded="true">
-                                维修方案项目定义
-                                <ul>
-                                    <li data-expanded="true">
-                                        <span class="k-sprite folder"></span>
-                                        <a href="#/define/define">维修方案项目定义</a>
-                                        <ul>
-                                            <li data-expanded="true">
-                                                <span class="k-sprite doc"></span>
-                                                测试下级菜单
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li data-expanded="true">
-                                        <span class="k-sprite doc"></span>
-                                        维修方案项目定义查询
-                                    </li>
-                                </ul>
-                            </li>
-                            <li data-expanded="false">
-                                维修数据采集管理
-                                <ul>
-                                    <li data-expanded="true">
-                                        <span class="k-sprite doc"></span>
-                                        维修数据相关性校核
-                                    </li>
-                                    <li data-expanded="true">
-                                        <span class="k-sprite doc"></span>
-                                        维修数据查询
-                                    </li>
-                                </ul>
-                            </li>
-                            <li data-expanded="true">
-
-                                维修方案统计分析及管理
-                                <ul>
-                                    <li data-expanded="true">
-                                        <span class="k-sprite doc"></span>
-                                        <a href="#/statistics/statistics">维修数据统计分析</a>
-                                    </li>
-                                    <li data-expanded="true">
-                                        <span class="k-sprite doc"></span>
-                                        维修数据统计分析查询
-                                    </li>
-                                    <li data-expanded="true">
-                                        <span class="k-sprite doc"></span>
-                                        有效性监控设置
-                                    </li>
-                                </ul>
-                            </li>
-                            <li data-expanded="true">
-
-                                维修方案优化工程建议
-                                <ul>
-                                    <li data-expanded="true">
-                                        <span class="k-sprite doc"></span>
-                                        维修方案优化工程建议
-                                    </li>
-                                    <li data-expanded="true">
-                                        <span class="k-sprite doc"></span>
-                                        维修方案优化工程建议查询
-                                    </li>
-                                    <li data-expanded="true">
-                                        <span class="k-sprite doc"></span>
-                                        关联工卡维护
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul id="panelbar" style="height:100%">
+                    </ul>
                 </div>
                 <!-- 主体内容块 -->
                 <div id="center-pane" class="center-pane" style="height: 100%; width: 100%;overflow:hidden;">
@@ -178,8 +108,74 @@
                     }
                 ]
             });
-            // treeview
-            $("#treeview").kendoTreeView();
+            // panelbar
+            $("#panelbar").kendoPanelBar({
+                expandMode: "single",
+                dataSource: [{
+                        text: "维修方案项目定义",
+                        items: [{
+                                text: "维修方案项目定义",
+                                imageUrl: "/images/doc-ico.png",
+                                url: "#/define/define"
+                            },
+                            {
+                                text: "维修方案项目定义查询",
+                                imageUrl: "/images/fold-ico.png",
+                                items: [{
+                                    text: "aaa",
+                                    imageUrl: "/images/doc-ico.png"
+                                }, {
+                                    text: "bbb",
+                                    imageUrl: "/images/doc-ico.png"
+                                }]
+                            }
+                        ]
+                    },
+                    {
+                        text: "维修数据采集管理",
+                        items: [{
+                                text: "维修数据相关性校核",
+                                imageUrl: "/images/doc-ico.png"
+                            },
+                            {
+                                text: "维修数据查询",
+                                imageUrl: "/images/doc-ico.png"
+                            }
+                        ]
+                    }, {
+                        text: "维修方案统计分析及管理",
+                        items: [{
+                                text: "维修数据统计分析",
+                                imageUrl: "/images/doc-ico.png",
+                                url: "#/statistics/statistics"
+                            },
+                            {
+                                text: "维修数据统计分析查询",
+                                imageUrl: "/images/doc-ico.png"
+                            },
+                            {
+                                text: "有效性监控设置",
+                                imageUrl: "/images/doc-ico.png"
+                            }
+                        ]
+                    }, {
+                        text: "维修方案优化工程建议",
+                        items: [{
+                                text: "维修方案优化工程建议",
+                                imageUrl: "/images/doc-ico.png"
+                            },
+                            {
+                                text: "维修方案优化工程建议查询",
+                                imageUrl: "/images/doc-ico.png"
+                            },
+                            {
+                                text: "关联工卡维护",
+                                imageUrl: "/images/doc-ico.png"
+                            }
+                        ]
+                    }
+                ]
+            });
 
         });
     </script>
