@@ -332,3 +332,15 @@ td.k-state-focused.k-state-selected {
     color: white;
 }
 /* kendoui css set end */
+.dia-list {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 12px;
+}
+.line-list {
+    display: inline-block;
+    padding-right: 40px;
+}
+.line-list .title {
+    font-weight: bold;
+}

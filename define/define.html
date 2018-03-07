@@ -46,7 +46,7 @@
                     </select>
                 </div>
                 <!-- 按钮 -->
-                <button class="k-primary btn-export" type="button">导出</button>
+                <button class="k-primary btn-export" type="button" style="margin-left:40px;">导出</button>
                 <button class="btn-search" type="button">查询</button>
                 <button class="btn-add" type="button">新增</button>
                 <button id="btn-all" type="button">显示所有按钮样式</button>
@@ -207,12 +207,12 @@
                         }
                     }],
                     title: "操作",
-                    width: "100px"
+                    width: "80px"
                 },
                 {
                     field: "Choices",
                     title: "My Choices",
-                    width: "150px",
+                    width: "120px",
                     editor: function (container, options) {
                         $('<input required name="' + options.field + '"/>').appendTo(
                             container).kendoDropDownList({
@@ -240,12 +240,15 @@
                     field: "models",
                     title: "机型",
                     encoded: false,
-                    width: "100px"
+                    width: "100px",
+                    editable: function () { // 不可编辑
+                        return false
+                    }
                 },
                 {
                     field: "planNum",
                     title: "维修方案项号",
-                    width: "100px"
+                    width: "120px"
                 },
                 {
                     field: "SIN_Number",
@@ -260,7 +263,7 @@
                 {
                     field: "ATA",
                     title: "ATA",
-                    width: "100px"
+                    width: "66px"
                 },
                 {
                     field: "hresholdValue",
@@ -275,7 +278,7 @@
                 {
                     field: "zhTitle",
                     title: "中文标题",
-                    width: "50px"
+                    width: "200px"
                 },
                 {
                     field: "enTitle",

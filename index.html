@@ -35,8 +35,8 @@
         <div id="middle-pane">
             <div id="horizontal" style="height: 100%; width: 100%;">
                 <!-- 左边树 -->
-                <div id="left-pane" class="left-pane" style="height: 100%; width: 100%;">
-                    <ul id="panelbar" style="height:100%">
+                <div id="left-pane" class="left-pane" style="height: 100%; width: 100%;overflow:hidden;">
+                    <ul id="panelbar" style="height:100%;overflow:auto;">
                     </ul>
                 </div>
                 <!-- 主体内容块 -->
@@ -113,15 +113,16 @@
                 expandMode: "single",
                 dataSource: [{
                         text: "维修方案项目定义",
+                        expanded: true,  // item is rendered expanded
                         items: [{
                                 text: "维修方案项目定义",
                                 imageUrl: "/images/doc-ico.png",
-                                url: "#/define/define"
+                                url: "#/define/define" // link URL if navigation is needed (optional)
                             },
                             {
                                 text: "维修方案项目定义查询",
                                 imageUrl: "/images/fold-ico.png",
-                                items: [{
+                                items: [{ // Sub item collection.
                                     text: "aaa",
                                     imageUrl: "/images/doc-ico.png"
                                 }, {
